@@ -6,6 +6,7 @@
     'author': 'Khubab & Ghazali',
     'summary': 'Database auto backup application.',
     'version': '1.0',
+    'license': 'OPL-1',
     'category': 'Tools',
     'description': """
 Database Auto Backup
