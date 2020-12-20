@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Auto Backup Config Settings View-->
+        <record id="autobackup_config_settings_form_view" model="ir.ui.view">
+            <field name="name">autobackup.config.settings.form.view</field>
+            <field name="model">autobackup.config.settings</field>
+            <field name="arch" type="xml">
+                <form string="Configure Database Auto Backup" class="oe_form_configuration">
+                    <header>
+                        <button string="Apply" type="object" name="execute" class="oe_highlight"/>
+                        <button string="Cancel" type="object" name="cancel" class="oe_link" special="cancel"/>
+                    </header>
+                    <group name="main">
+                        <field name="autobackup_enabled" class="oe_inline"/>
+                        <field name="db_name" class="oe_inline"
+                               attrs="{'required': [('autobackup_enabled', '=', True)], 'invisible': [('autobackup_enabled', '=', False)]}"/>
+                        <field name="master_pwd" class="oe_inline"
+                               attrs="{'required': [('autobackup_enabled', '=', True)], 'invisible': [('autobackup_enabled', '=', False)]}"/>
+                        <field name="backup_dir" class="oe_inline"
+                               attrs="{'required': [('autobackup_enabled', '=', True)], 'invisible': [('autobackup_enabled', '=', False)]}"/>
+                        <field name="backup_format" class="oe_inline"
+                               attrs="{'required': [('autobackup_enabled', '=', True)], 'invisible': [('autobackup_enabled', '=', False)]}"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="autobackup_config_settings_action" model="ir.actions.act_window">
+            <field name="name">Configure Auto Backup</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">autobackup.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <menuitem id="menu_autobackup" name="Database Auto Backup" sequence="5" groups="base.group_system"/>
+
+        <menuitem id="menu_autobackup_config_settings" name="Settings" sequence="1"
+                  action="autobackup_config_settings_action" groups="base.group_system" parent="menu_autobackup"/>
+
+    </data>
+</odoo>
