@@ -18,6 +18,7 @@ Database Auto Backup
         'data/autobackup_data.xml',
         'views/autobackup_config_settings_views.xml'
     ],
+    'images': ['static/description/thumbnails.png'],
     'installable': True,
     'application': False,
     'auto_install': False,
