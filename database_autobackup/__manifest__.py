@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 {
-    'name': 'Database Auto Backup (includes filestore)',
+    'name': 'Database Auto Backup (filestore)',
     'author': 'Khubab & Ghazali',
-    'summary': 'Database auto backup application.',
+    'summary': 'Database auto backup application with/ without filestore.',
     'version': '1.0',
     'license': 'OPL-1',
     'category': 'Tools',
