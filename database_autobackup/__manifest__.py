@@ -3,7 +3,7 @@
 {
     'name': 'Database Auto Backup (filestore)',
     'author': 'Khubab & Ghazali',
-    'summary': 'Database auto backup application with/ without filestore.',
+    'summary': 'Database auto backup application, includes filestore option.',
     'version': '1.0',
     'license': 'OPL-1',
     'category': 'Tools',
