@@ -15,6 +15,7 @@ Database Auto Backup
     'data': [
         'security/ir.model.access.csv',
         'data/autobackup_cron.xml',
+        'data/autobackup_data.xml',
         'views/autobackup_config_settings_views.xml'
     ],
     'installable': True,

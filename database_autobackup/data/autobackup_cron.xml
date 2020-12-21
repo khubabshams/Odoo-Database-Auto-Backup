@@ -3,15 +3,16 @@
     <data noupdate="0">
 
         <!-- Cron for Auto Backup Schedules -->
-        <record id="ir_cron_autobackup1" model="ir.cron">
+        <record model="ir.cron" id="ir_cron_autobackup">
             <field name="name">Database Auto Backup Cron</field>
-            <field name="user_id" ref="base.user_root"/>
             <field name="interval_number">7</field>
             <field name="interval_type">days</field>
             <field name="numbercall">-1</field>
-            <field eval="False" name="doall"/>
-            <field eval="'autobackup.scheduler'" name="model"/>
-            <field eval="'cron_database_autobackup'" name="function"/>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="doall" eval="False" />
+            <field name="model_id" ref="model_autobackup_scheduler" />
+            <field name="state">code</field>
+            <field name="code">model.cron_database_autobackup()</field>
         </record>
 
     </data>
