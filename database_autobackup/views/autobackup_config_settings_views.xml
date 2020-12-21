@@ -8,8 +8,8 @@
         <field name="inherit_id" ref="base.res_config_settings_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('settings')]" position="inside">
-                <div class="app_settings_block" data-string="Database Auto Backup" string="Database Auto Backup"
-                     data-key="autobackup">
+                <div class="app_settings_block" data-string="Database Auto Backup" data-key="database_autobackup"
+                     string="Database Auto Backup">
                     <h2>Configure Backup</h2>
                     <div class="row mt16 o_settings_container">
                         <div class="col-12 col-lg-6 o_setting_box">
