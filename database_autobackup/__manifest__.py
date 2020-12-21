@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
 
 {
-    'name': 'Database Auto Backup',
+    'name': 'Database Auto Backup (includes filestore)',
     'author': 'Khubab & Ghazali',
     'summary': 'Database auto backup application.',
     'version': '1.0',
