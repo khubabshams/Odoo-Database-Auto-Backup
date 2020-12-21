@@ -16,7 +16,7 @@
                         <field name="autobackup_enabled" class="oe_inline"/>
                         <field name="db_name" class="oe_inline"
                                attrs="{'required': [('autobackup_enabled', '=', True)], 'invisible': [('autobackup_enabled', '=', False)]}"/>
-                        <field name="master_pwd" class="oe_inline"
+                        <field name="master_pwd" class="oe_inline" password="True"
                                attrs="{'required': [('autobackup_enabled', '=', True)], 'invisible': [('autobackup_enabled', '=', False)]}"/>
                         <field name="backup_dir" class="oe_inline"
                                attrs="{'required': [('autobackup_enabled', '=', True)], 'invisible': [('autobackup_enabled', '=', False)]}"/>
