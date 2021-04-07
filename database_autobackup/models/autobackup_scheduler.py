@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models, _
-import glob
 import os
 import logging
 
@@ -25,10 +24,10 @@ class AutoBackupScheduler(models.Model):
                 backup_dir += '/'
             backup_format = self.env['ir.values'].get_default('autobackup.config.settings', 'backup_format')
             server_url = self.env['ir.config_parameter'].get_param('web.base.url')
-            command = 'curl -X POST -F "master_pwd=%s" -F "name=%s" -F "backup_format=%s" ' \
-                      '-o %s/%s_%s_db.%s %s/web/database/backup' % (master_pwd, db_name, backup_format,
-                                                                    backup_dir, db_name, time_now,
-                                                                    backup_format, server_url)
+            command = 'curl --insecure -X POST -F "master_pwd=%s" -F "name=%s" -F "backup_format=%s" ' \
+                      '-o %s%s_%s_db.%s %s/web/database/backup' % (master_pwd, db_name, backup_format,
+                                                                   backup_dir, db_name, time_now,
+                                                                   backup_format, server_url)
             unix_code = os.system(command)
             _logger.info(":::: Autobackup Cron Feedback Unix Code (Backup): %s ::::" % unix_code)
         _logger.info(":::: Autobackup Cron Finished ::::")
