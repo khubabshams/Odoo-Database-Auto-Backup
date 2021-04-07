@@ -26,7 +26,7 @@ class AutoBackupScheduler(models.Model):
             if backup_dir and backup_dir[-1] != '/':
                 backup_dir += '/'
             command = 'curl --insecure -X POST -F "master_pwd=%s" -F "name=%s" -F "backup_format=%s" ' \
-                      '-o %s/%s_%s_db.%s %s/web/database/backup' % (master_pwd, db_name, backup_format,
+                      '-o %s%s_%s_db.%s %s/web/database/backup' % (master_pwd, db_name, backup_format,
                                                                     backup_dir, db_name, time_now,
                                                                     backup_format, server_url)
             unix_code = os.system(command)
