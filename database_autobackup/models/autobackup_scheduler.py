@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models, _
-import glob
 import os
 import logging
 
@@ -26,7 +25,7 @@ class AutoBackupScheduler(models.Model):
             server_url = params.get_param('web.base.url')
             if backup_dir and backup_dir[-1] != '/':
                 backup_dir += '/'
-            command = 'curl -X POST -F "master_pwd=%s" -F "name=%s" -F "backup_format=%s" ' \
+            command = 'curl --insecure -X POST -F "master_pwd=%s" -F "name=%s" -F "backup_format=%s" ' \
                       '-o %s/%s_%s_db.%s %s/web/database/backup' % (master_pwd, db_name, backup_format,
                                                                     backup_dir, db_name, time_now,
                                                                     backup_format, server_url)
