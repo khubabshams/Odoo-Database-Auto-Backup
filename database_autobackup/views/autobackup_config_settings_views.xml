@@ -14,7 +14,7 @@
                     <div class="row mt16 o_settings_container">
                         <div class="col-12 col-lg-6 o_setting_box">
                             <div class="o_setting_left_pane">
-                                <field name="autobackup_enabled" class="oe_inline"/>
+                                <field name="autobackup_enabled" class="oe_inline" widget="boolean_toggle"/>
                             </div>
                             <div class="o_setting_right_pane">
                                 <label for="autobackup_enabled"/>
@@ -52,6 +52,13 @@
                                     Type of backup; choose zip if you need to backup odoo filestore
                                 </div>
                                 <field name="backup_format" class="oe_inline"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <field name="ssl_enabled" class="oe_inline" widget="boolean_toggle"/>
+                                <label for="ssl_enabled"/>
+                                <div class="text-muted">
+                                    SSL Secured Odoo Server
+                                </div>
                             </div>
                         </div>
                     </div>

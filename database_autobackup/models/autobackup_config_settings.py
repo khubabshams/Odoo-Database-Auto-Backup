@@ -17,6 +17,8 @@ class AutoBackupConfigSettings(models.TransientModel):
                                                                              default='')
         res['backup_dir'] = self.env['ir.config_parameter'].sudo().get_param('database_autobackup.backup_dir',
                                                                              default='')
+        res['ssl_enabled'] = self.env['ir.config_parameter'].sudo().get_param('database_autobackup.ssl_enabled',
+                                                                              default=False)
         res['backup_format'] = self.env['ir.config_parameter'].sudo().get_param('database_autobackup.backup_format',
                                                                                 default='zip')
         return res
@@ -31,6 +33,8 @@ class AutoBackupConfigSettings(models.TransientModel):
                                                          self.master_pwd)
         self.env['ir.config_parameter'].sudo().set_param('database_autobackup.backup_dir',
                                                          self.backup_dir)
+        self.env['ir.config_parameter'].sudo().set_param('database_autobackup.ssl_enabled',
+                                                         self.ssl_enabled)
         self.env['ir.config_parameter'].sudo().set_param('database_autobackup.backup_format',
                                                          self.backup_format)
         super(AutoBackupConfigSettings, self).set_values()
@@ -40,5 +44,7 @@ class AutoBackupConfigSettings(models.TransientModel):
     db_name = fields.Char(string="Database Name")
     master_pwd = fields.Char(string="Odoo Master Password")
     backup_dir = fields.Char(string="Backup Directory")
+    ssl_enabled = fields.Boolean(string="SSL Enabled?",
+                                 config_parameter='database_autobackup.default_ssl_enabled')
     backup_format = fields.Selection([('zip', 'ZIP (includes filestore)'), ('dump', 'Dump File')],
                                      string="Backup Format", default='zip')
